@@ -33,7 +33,7 @@ export default function HomePage() {
     }
     getListTrending();
   }, []);
-  useEffect(() => {}, [listMovies]);
+
   return (
     <div className={css.section}>
       {loader && <p>loader......</p>}
