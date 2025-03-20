@@ -17,6 +17,7 @@ export default function MovieDetailsPage() {
   const navigate = useNavigate();
   const { movieId } = useParams();
   const location = useLocation();
+  const backLinkRef = useRef(location.state);
 
   useEffect(() => {
     async function getDataById() {
@@ -39,7 +40,7 @@ export default function MovieDetailsPage() {
       {/* <button onClick={() => navigate("/")} className={css.btn}>
         Go Back
       </button> */}
-      <Link to={location.state} className={css.btn}>
+      <Link to={backLinkRef.current} className={css.btn}>
         Go Back
       </Link>
       {loader && <p>Please wait, loading ...</p>}
@@ -89,14 +90,10 @@ export default function MovieDetailsPage() {
       <div>
         <ul key={Date.now()}>
           <li key="cast">
-            <Link to="cast" state={location.state}>
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
           <li key="reviews">
-            <Link to="reviews" state={location.state}>
-              reviews
-            </Link>
+            <Link to="reviews">Reviews</Link>
           </li>
         </ul>
         <Suspense fallback={"Loading page..."}>

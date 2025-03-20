@@ -19,7 +19,7 @@ export default function MovieReviews() {
       }
     }
     getDataReviews();
-  }, []);
+  }, [movieId]);
 
   return (
     <>

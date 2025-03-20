@@ -33,12 +33,12 @@ export default async function fetchDataTrending() {
 
 export async function fetchDataWithSearch(query, page) {
   try {
-    if (query === "") {
-      return;
-    }
-    if (!query.trim()) {
-      return null;
-    }
+    // if (query === "") {
+    //   return;
+    // }
+    // if (!query.trim()) {
+    //   return null;
+    // }
     const URL_SearchAPI = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`;
     const { data } = await axios.get(URL_SearchAPI, options);
     return data;

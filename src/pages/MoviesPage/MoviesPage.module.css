@@ -21,7 +21,7 @@
     #bebebf,
     #bebebf,
     #bebebf,
-    #5a5757,
+    #cecbcb,
     transparent
   );
   /* background: linear-gradient(
@@ -37,6 +37,7 @@
     transparent
   ); */
   box-shadow: 0px 5px 20px #620101;
+  margin-top: 50px;
 }
 .conteiner input {
   border-radius: 12px;

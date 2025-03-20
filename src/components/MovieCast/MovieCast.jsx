@@ -6,31 +6,32 @@ import { useLocation, useParams, useSearchParams } from "react-router-dom";
 export default function MovieCast() {
   const [value, setValue] = useState([]);
   const location = useLocation();
+  const { movieId } = useParams();
 
-  const url = location.pathname;
-  function extractNumbersFromUrl(url) {
-    return Array.from(url)
-      .filter((char) => !isNaN(char) && char !== " ")
-      .join("")
-      .toString();
-  }
-  const id = extractNumbersFromUrl(url);
+  // const url = location.pathname;
+  // function extractNumbersFromUrl(url) {
+  //   return Array.from(url)
+  //     .filter((char) => !isNaN(char) && char !== " ")
+  //     .join("")
+  //     .toString();
+  // }
+  // const id = extractNumbersFromUrl(url);
 
   useEffect(() => {
     async function getDataCredits() {
-      const response = await fetchDataCredits(id);
+      const response = await fetchDataCredits(movieId);
       const data = response.cast.slice(0, 5);
 
       setValue(data);
     }
     getDataCredits();
-  }, []);
+  }, [movieId]);
 
   return (
     <>
       <h2>MovieCast</h2>
       {value.length > 0 && (
-        <ul key={`movie-${id}`} className={css.list}>
+        <ul key={`movie-${value.id}`} className={css.list}>
           {value.map((item, index) => (
             <li key={`${item.id}-${index}`}>
               <h3>{item.name}</h3>

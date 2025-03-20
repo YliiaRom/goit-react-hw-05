@@ -2,7 +2,10 @@ import { lazy, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
+
 import Navigation from "./components/Navigation/Navigation";
+// import SearchPage from "./pages/SearchPage/SearchPage";
+
 // import HomePage from "./pages/HomePage/HomePage";
 // import MoviesPage from "./pages/MoviesPage/MoviesPage";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
